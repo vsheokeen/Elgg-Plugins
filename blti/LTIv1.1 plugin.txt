@@ -1,0 +1,39 @@
+LTI v1.1 plugin
+----------------
+Install
+-------
+Just expand in the mod directory (creating a directory blti) and then go to the admin panel and activate.
+LTI v1.1
+--------
+The plugin implements the tool provider component of LTI v.1.1. In LTI speak, a tool consumer is the application the launches the provider tool (the consumer is consuming services from the provider). Thus if using a virtual learning environment (Blackboard, Moodle, WebCT) to launch Elgg then the virtual learning environment is the consumer and Elgg the provider.
+We define a new relation between groups and users called ‘instructors’. The purpose of this relationship is to allow individuals who are instructors (in terms of the LTI role) to have the same rights editing a group as the owner. The owner is the instructor that creates the group (the first instructor to make the link in the VLE)
+Unofficial extensions
+---------------------
+This plugin implements the unofficial extensions: outcomes, membership and setting. The extensions provide a mechanism for the tool provider to send or retrieve data from the consumer. If the consumer supports the unofficial extensions then:
+(i) the date of the last login & number of logins for each group is recorded against the learner using the launch from the tool consumer (outcomes). 
+(ii) Membership can be requested by the provider from the consumer and this can be used by group owners (and group instructors) to sync the group membership with that in the consumer (membership)
+(iii) The date of the last sync is stored for each group (setting)
+To set up Elgg as a Basic LTI consumer two items of information are required: a key and secret. You will also need a name --- purely for managing the list of consumers of Elgg. The key is probably best set to the hostname of the consuming server, i.e. blackboard.stir.ac.uk although any string can be used as long as it is a unique identifier for the tool consumer.
+The URL to enter into, the tool consumer is:
+http://<your Elgg address>/pg/blti/
+Thus if your Elgg is located at http://myElgg.domain.com/UsingSubDir
+Then the address to point the consuming application at is:
+http://myElgg.domain.com/UsingSubDir/pg/blti/
+The details of the key and secret need to be agreed with the consumer in some out-of-band way (email, phone) and then entered into the appropriate place in Elgg (see the admin panel for the additional option LTI consumers)
+Setting up the plugin
+---------------------
+The plugin allows the administrator to control provisioning of users and groups. Both are set to on to allow the plugin to create users and, under certain conditions, groups. If you plan to provision in some alternative way then switch off using the settings for the tool in the admin panel.
+Also available via the plugin settings are whether instructors (and group owners) can create/update users. If this is off the group sync option does not appear. 
+Lastly a test mode is available whereby the result of sync operations can be inspected without actually synchronising the membership. 
+When user provisioning is on the username that is created is the user_id (as defined by LTI v1.1 --- this is not necessarily the username) plus the key to give: key:user_id. This choice is made to deal with situation when Elgg is acting as a provider to number of different systems all of which could provide the same data for user_id (the global uniqueness only references the tool provider). Concatenating the key with the user_id (which should be different for all systems) gives a unique to Elgg username.
+When provisioning groups the LTI fields ‘context_title’ and ‘'resource_link_title' are combined to name the group. If neither us present then ‘Course’ . ‘context_id’ is used giving something like Course_106_1 for content_id ‘_106_1’.
+Lastly when a group is deleted the instructors are emailed informing them of this (assuming the Elgg notifications plugin is enabled). A membership synchronisation is done, if possible, to determine the current instructors otherwise the current group membership is used.
+Technical Notes
+---------------
+This plugin requires that tables are added to the Elgg database. These are created automatically by the plugin. To see the definitions see the function CheckDB in lib/Utility.php
+
+Simon Booth
+ceLTIc project
+www.celtic-project.org
+University of Stirling
+29-Feb-2012

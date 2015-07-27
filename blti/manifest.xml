@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin_manifest xmlns="http://www.elgg.org/plugin_manifest/1.8">
+
+	<name>LTI Plugin</name>
+	<author>Simon Booth, Stephen Vickers</author>
+	<version>1.0.0</version>
+	<description>Plugin to support LTIv1.1 with unoffical extensions using SPV Software Products PHP Basic LTI Tool Provider Class</description>
+	<website>http://www.celtic-project.org/</website>
+	<copyright>(c) JISC 2010-11</copyright>
+	<license>GNU Public License version 2</license>
+	<requires>
+		<type>elgg_release</type>
+		<version>1.8</version>
+	</requires>
+	<activate_on_install>false</activate_on_install>
+
+</plugin_manifest>
