@@ -1,7 +1,7 @@
 <?php
 
 $container_guid = elgg_extract("container_guid", $vars, false);
-
+$guid = '';
 $result=elgg_get_entities(array('type' => 'object', 'subtype' => 'points_manage', 'container_guid' => $container_guid));
 $array = array();
 
