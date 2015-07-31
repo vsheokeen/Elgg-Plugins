@@ -1,11 +1,11 @@
 <?php
 
-$params = get_input('params');
+$params = $_REQUEST['params'];
 
-$guid = get_input('guid') ? get_input('guid') : '';
+$guid = isset( $_REQUEST['guid'] ) ? $_REQUEST['guid'] : '';
 
-if(!empty(get_input('container_guid')))
-{ $_SESSION['lti_group_id'] = get_input('container_guid'); }
+if(!empty($_REQUEST['container_guid']))
+{ $_SESSION['lti_group_id'] = $_REQUEST['container_guid']; }
 
 if(!empty($guid))
 {
@@ -26,7 +26,7 @@ foreach($params as $k => $v) {
 }
 
 $points->subtype = 'points_manage';
-$points->container_guid = get_input('container_guid');
+$points->container_guid = $_REQUEST['container_guid'];
 
 $result = $points->save();
 
