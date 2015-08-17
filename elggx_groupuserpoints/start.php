@@ -13,8 +13,8 @@ function groupuserpoints_init() {
 	elgg_extend_view('css/elgg', 'elggx_groupuserpoints/css');
 	elgg_extend_view('icon/user/default','elggx_groupuserpoints/icon');
 
-	elgg_register_widget_type('topgrouppoints', elgg_echo('elggx_groupuserpoints:toppoints'), elgg_echo('elggx_groupuserpoints:widget:toppoints:info'));
-	elgg_register_widget_type('index_topgrouppoints', elgg_echo('elggx_groupuserpoints:toppoints'), elgg_echo('elggx_groupuserpoints:toppoints'), array('index'));
+	//elgg_register_widget_type('topgrouppoints', elgg_echo('elggx_groupuserpoints:toppoints'), elgg_echo('elggx_groupuserpoints:widget:toppoints:info'));
+	//elgg_register_widget_type('index_topgrouppoints', elgg_echo('elggx_groupuserpoints:toppoints'), elgg_echo('elggx_groupuserpoints:toppoints'), array('index'));
 
 	// Hooks for awarding points
 
