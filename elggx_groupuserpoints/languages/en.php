@@ -59,7 +59,7 @@ return array(
 	'elggx_groupuserpoints:settings:365_days' => '365 Days',
 	'elggx_groupuserpoints:settings:toppoints:num' => 'The number of users to display',
 	'elggx_groupuserpoints:settings:profile_display' => 'Display points on users profile? ',
-	'elggx_groupuserpoints:toppoints' => 'Top Points',
+	'elggx_groupuserpoints:toppoints' => 'Top Group Points',
 	'elggx_groupuserpoints:add:user' => 'Username:',
 	'elggx_groupuserpoints:add:description' => 'Description:',
 	'elggx_groupuserpoints:add:success' => 'Successfully added %d %s to user %s',
