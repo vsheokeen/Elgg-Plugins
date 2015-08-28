@@ -299,6 +299,10 @@ function elggx_groupuserpoints_object($event, $object_type, $object) {
 		$container_guid = $meta_entities[0]->container_guid;	
 	}
 	
+	$_relationship = check_entity_relationship(elgg_get_logged_in_user_guid(),'instructor',$container_guid);	
+	if(!empty($_relationship))
+	return;
+	
 	$ElggEntity = elgg_get_entities(array('guid' => $container_guid));
 	$array = array();
 	
@@ -637,6 +641,10 @@ $array = array();
 $meta_entities = elgg_get_entities(array('guid' => $container_guid));
 $meta_guid = $meta_entities[0]->container_guid;	
 
+$_relationship = check_entity_relationship(elgg_get_logged_in_user_guid(),'instructor',$meta_guid);	
+if(!empty($_relationship))
+return;
+
 $result=elgg_get_entities(array('type' => 'object','subtype' => 'points_manage','container_guid' => $meta_guid));
 
 	if(!empty($result))
@@ -668,6 +676,10 @@ $container_guid = get_input('guid');
 $array = array();
 $meta_entities = elgg_get_entities(array('guid' => $container_guid));
 $meta_guid = $meta_entities[0]->container_guid;	
+
+$_relationship = check_entity_relationship(elgg_get_logged_in_user_guid(),'instructor',$meta_guid);	
+if(!empty($_relationship))
+return;
 
 $result=elgg_get_entities(array('type' => 'object','subtype' => 'points_manage','container_guid' => $meta_guid));
 
