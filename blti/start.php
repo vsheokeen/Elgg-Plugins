@@ -76,6 +76,7 @@ function lti_init() {
     elgg_register_plugin_hook_handler('permissions_check', 'group', 'LTIgroup_operators_permissions_hook');
     // Allow instructors to update user details but within context of group
     elgg_register_plugin_hook_handler('permissions_check', 'user', 'LTIgroup_operators_permissions_hook');
+    elgg_register_css('blti_css', '/mod/blti/css/style.css');
 
 	if (!empty($_SESSION['return_url'])) {
 
@@ -87,7 +88,9 @@ function lti_init() {
             'priority' => 2,
             'section' => 'alt',
             'text' => $_SESSION['return_name'],
-    ));
+        ));
+        
+	elgg_load_css('blti_css');
 	
 	}
 	
