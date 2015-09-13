@@ -401,7 +401,7 @@ die;*/
 	if (function_exists('groupuserpoints_add')) {
 		if ($event == 'create') {
 			if ($points = elgg_get_plugin_setting($object_type, 'elggx_groupuserpoints')) {
-				groupuserpoints_add(elgg_get_logged_in_user_guid(), $points, $object_type, $object_type, $object->guid);
+			//	groupuserpoints_add(elgg_get_logged_in_user_guid(), $points, $object_type, $object_type, $object->guid);
 			}
 		} else if ($event == 'delete') {
 			groupuserpoints_delete(elgg_get_logged_in_user_guid(), $object->guid);
@@ -635,7 +635,7 @@ function elggx_groupuserpoints_validEmail($email) {
 
 function elggx_groupuserpoints_like()
 {
-
+elgg_set_ignore_access(true);
 $container_guid = get_input('guid');
 $array = array();
 $meta_entities = elgg_get_entities(array('guid' => $container_guid));
@@ -671,7 +671,7 @@ $result=elgg_get_entities(array('type' => 'object','subtype' => 'points_manage',
 
 function elggx_groupuserpoints_vote()
 {
-
+elgg_set_ignore_access(true);
 $container_guid = get_input('guid');
 $array = array();
 $meta_entities = elgg_get_entities(array('guid' => $container_guid));
